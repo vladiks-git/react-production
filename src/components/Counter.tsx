@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./style.scss";
+import cls from "./style.module.scss";
 
 export const Counter = () => {
   const [counter, setCounter] = useState(0);
@@ -10,7 +10,9 @@ export const Counter = () => {
   return (
     <div>
       <h1>{counter}</h1>
-      <button onClick={handleCount}>click me</button>
+      <button className={cls.btn} onClick={handleCount}>
+        click me
+      </button>
     </div>
   );
 };
