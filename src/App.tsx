@@ -12,7 +12,7 @@ const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className='app light'>
+    <div className={`app ${theme}`}>
       <Link to={'/'}>Main</Link>
       <Link to={'/about'}>About</Link>
       <button onClick={toggleTheme}> change theme</button>
