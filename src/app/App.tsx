@@ -10,7 +10,6 @@ import { Navbar } from "widgets/Navbar";
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
-  console.log("🚀 ~ file: App.tsx ~ line 13 ~ App ~ theme", theme);
 
   return (
     <div className={classNames("app", { test: true }, [theme])}>
