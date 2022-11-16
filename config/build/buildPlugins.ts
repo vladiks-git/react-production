@@ -2,30 +2,30 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
-import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+// import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildPlugins({
-  paths,
-  isDev,
+    paths,
+    isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
-  const refreshPluginsForDevleopment = [];
-  if (isDev) {
-    refreshPluginsForDevleopment.push(new webpack.HotModuleReplacementPlugin());
-    refreshPluginsForDevleopment.push(new ReactRefreshPlugin());
-  }
+    const refreshPluginsForDevleopment = [];
+    if (isDev) {
+        refreshPluginsForDevleopment.push(new webpack.HotModuleReplacementPlugin());
+        // refreshPluginsForDevleopment.push(new ReactRefreshPlugin());
+    }
 
-  return [
-    new HTMLWebpackPlugin({
-      template: paths.html,
-    }),
-    new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
-    new webpack.DefinePlugin({
-      __IS_DEV__: JSON.stringify(isDev),
-    }),
-    ...refreshPluginsForDevleopment,
-  ];
+    return [
+        new HTMLWebpackPlugin({
+            template: paths.html,
+        }),
+        new webpack.ProgressPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css',
+        }),
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(isDev),
+        }),
+        ...refreshPluginsForDevleopment,
+    ];
 }

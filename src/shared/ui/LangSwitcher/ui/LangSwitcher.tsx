@@ -8,18 +8,18 @@ interface ILangSwitcherProps {
 }
 
 export const LangSwitcher: React.FC<ILangSwitcherProps> = ({ className }) => {
-  const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
-  const handleToggle = () =>
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    const handleToggle = () =>
+        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
 
-  return (
-    <Button
-      onClick={handleToggle}
-      variant={ButtonVariants.CLEAR}
-      className={classNames(cls.LangSwitcher, {}, [className])}
-    >
-      {t('Язык')}
-    </Button>
-  );
+    return (
+        <Button
+            onClick={handleToggle}
+            variant={ButtonVariants.CLEAR}
+            className={classNames(cls.LangSwitcher, {}, [className])}
+        >
+            {t('Язык')}
+        </Button>
+    );
 };

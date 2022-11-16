@@ -9,21 +9,21 @@ interface ISidebarProps {
 }
 
 export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
-  const [collapsed, setCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState(true);
 
-  const handleToggle = () => setCollapsed((prev) => !prev);
+    const handleToggle = () => setCollapsed((prev) => !prev);
 
-  return (
-    <div
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <button onClick={handleToggle}>toggle</button>
-      <div className={cls.swicthers}>
-        <ThemeSwitcher />
-        <LangSwitcher />
-      </div>
-    </div>
-  );
+    return (
+        <div
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
+        >
+            <button onClick={handleToggle}>toggle</button>
+            <div className={cls.swicthers}>
+                <ThemeSwitcher />
+                <LangSwitcher />
+            </div>
+        </div>
+    );
 };

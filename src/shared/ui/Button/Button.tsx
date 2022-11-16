@@ -12,17 +12,17 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<IButtonProps> = ({
-  className,
-  children,
-  variant,
-  ...props
+    className,
+    children,
+    variant,
+    ...props
 }) => {
-  return (
-    <button
-      className={classNames(cls.Button, {}, [className, cls[variant]])}
-      {...props}
-    >
-      {children}
-    </button>
-  );
+    return (
+        <button
+            className={classNames(cls.Button, {}, [className, cls[variant]])}
+            {...props}
+        >
+            {children}
+        </button>
+    );
 };

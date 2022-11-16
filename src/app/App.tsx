@@ -10,19 +10,19 @@ import { Sidebar } from 'widgets/Sidebar';
 import { useTranslation } from 'react-i18next';
 
 const App = () => {
-  const { theme, toggleTheme } = useTheme();
+    const { theme, toggleTheme } = useTheme();
 
-  return (
-    <div className={classNames('app', { test: true }, [theme])}>
-      <Suspense fallback=''>
-        <Navbar />
-        <div className='content-page'>
-          <Sidebar />
-          <AppRouter />
+    return (
+        <div className={classNames('app', { test: true }, [theme])}>
+            <Suspense fallback=''>
+                <Navbar />
+                <div className='content-page'>
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
-      </Suspense>
-    </div>
-  );
+    );
 };
 
 export default App;
