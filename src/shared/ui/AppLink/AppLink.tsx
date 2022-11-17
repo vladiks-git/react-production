@@ -14,19 +14,19 @@ interface IAppLinkProps extends LinkProps {
 }
 
 export const AppLink: React.FC<IAppLinkProps> = ({
-    to,
-    children,
-    className,
-    variant = AppLinkVariant.PRIMARY,
-    ...props
+  to,
+  children,
+  className,
+  variant = AppLinkVariant.PRIMARY,
+  ...props
 }) => {
-    return (
-        <Link
-            to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[variant]])}
-            {...props}
-        >
-            {children}
-        </Link>
-    );
+  return (
+    <Link
+      to={to}
+      className={classNames(cls.AppLink, {}, [className, cls[variant]])}
+      {...props}
+    >
+      {children}
+    </Link>
+  );
 };
