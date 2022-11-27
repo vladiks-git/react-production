@@ -5,6 +5,17 @@ import webpack from 'webpack';
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options;
 
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+      },
+    },
+  };
+
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
@@ -44,5 +55,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [svgLoader, fileLoader, typescriptLoader, sassLoader];
+  return [svgLoader, fileLoader, babelLoader, typescriptLoader, sassLoader];
 }
